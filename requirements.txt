@@ -20,7 +20,6 @@ Markdown==3.3.4
 MarkupSafe==1.1.1
 numpy==1.19.5
 oauthlib==3.1.0
-opencv-python==4.5.2.52
 opt-einsum==3.3.0
 protobuf==3.16.0
 pyasn1==0.4.8
@@ -41,3 +40,4 @@ Werkzeug==1.0.1
 wincertstore==0.2
 wrapt==1.12.1
 gunicorn
+opencv-python
