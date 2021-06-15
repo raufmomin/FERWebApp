@@ -8,46 +8,141 @@
 
     <title>Facial Expression Recognition</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/templatemo-style.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='images/logo.gif') }}" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/jpg" sizes="16x16">
+
+    <style>
+        /* Center the loader */
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 120px;
+            height: 120px;
+            margin: -76px 0 0 -76px;
+            border: 16px solid #f5f5f5;
+            border-radius: 50%;
+            border-top: 16px solid rgb(102, 102, 124);
+            border-bottom: 16px solid rgb(102, 102, 124);
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Add animation to "page content" */
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
+        }
+
+        @-webkit-keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0px;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        #myDiv {
+            display: none;
+            text-align: center;
+        }
+    </style>
+
 </head>
 
-<body>
+<body onload="myFunction()" style="margin:0;">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <header class="text-center tm-site-header">
-                    <div class="tm-site-logo"></div>
-                    <h1 class="pl-4 tm-site-title">Facial Expression Recognition</h1>
-                </header>
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <header class="text-center tm-site-header">
+                        <div class="tm-site-logo"></div>
+                        <h6 class="pl-4 tm-site-title">Facial Expression Recognition</h6>
+                    </header>
+
+                    <h6 class="tm-welcome-text">
+                        Welcome, Hope you're doing well today! <br>
+                    </h6>
+                    <p>
+                        Real-time detection of Seven Universal Facial Expressions 😠 🤢 😨 😃 😞 😲 😐
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="tm-video-container">
-                    <img id="tm-welcome-video" class="tm-welcome-video" src="{{url_for('video_feed') }}">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tm-video-container">
+                        <img id="tm-welcome-video" class="tm-welcome-video" src="{{url_for('video_feed') }}">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container tm-container-2">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="tm-welcome-text">Welcome, You look happy today :)</h2>
-            </div>
+        <div class="container tm-container-2">
+            <footer class="row mt-5 mb-5">
+                <div class="col-lg-12">
+                    <p class="text-center tm-text-gray tm-copyright-text mb-0">Copyright &copy;
+                        <span class="tm-current-year">FER2021 | SZABIST </span>
+                    </p>
+                </div>
+            </footer>
         </div>
-
-        <footer class="row mt-5 mb-5">
-            <div class="col-lg-12">
-                <p class="text-center tm-text-gray tm-copyright-text mb-0">Copyright &copy;
-                    <span class="tm-current-year">2021 FER</span>
-                </p>
-            </div>
-        </footer>
     </div>
+
+    <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 3000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+    </script>
 </body>
 
 </html>
