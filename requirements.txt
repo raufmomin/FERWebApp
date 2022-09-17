@@ -18,7 +18,7 @@ Jinja2==2.11.3
 Keras-Preprocessing==1.1.2
 Markdown==3.3.4
 MarkupSafe==1.1.1
-numpy==1.19.5
+numpy>=1.22
 oauthlib==3.1.0
 opt-einsum==3.3.0
 protobuf==3.16.0
@@ -35,7 +35,7 @@ tensorflow-cpu>=2.7.2
 tensorflow-estimator==2.4.0
 termcolor==1.1.0
 typing-extensions==3.7.4.3
-urllib3==1.26.4
+urllib3>=1.26.5
 Werkzeug==1.0.1
 wincertstore==0.2
 wrapt==1.12.1
